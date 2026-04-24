@@ -14,12 +14,14 @@ function runExerciseOne() {
   );
 }
 
+// ------------------------------------------ Exercise 2
 function runExerciseTwo() {
   const firstName: string = readLine(`Please enter your first name: `);
   const lastName: string = readLine(`Please enter your last name: `);
   console.log(`Hello ${firstName} ${lastName}! Have a nice day!`);
 }
-// -------------------------------- TEST FUNCTIONS FROM 3 - 6
+
+// ------------------------------------------ Exercise 3
 function runExerciseThree() {
   // A
   const num1: number = Number(readLine(`Enter a number: `));
@@ -46,17 +48,24 @@ function runExerciseThree() {
       `ERROR: Your divisor is ${oddNum} - cannot divide a number by zero`,
     );
   } else {
-    console.log(`${oddNum} divided by ${evenNum} = ${oddNum / evenNum}`);
+    console.log(`${evenNum} divided by ${oddNum} = ${evenNum / oddNum}`);
   }
 }
 
+// ------------------------------------------ Exercise 4
 function runExerciseFour() {
   const radius: number = Number(readLine(`Enter circle radius (number): `));
-  console.log(
+  if (isNaN(radius)) {
+    console.log(`ERROR: ${radius} is not a valid number.`)
+  } else {
+    console.log(
     `Circle area: ${(Math.PI * radius ** 2).toFixed(2)}\nSphere volume: ${((4 / 3) * Math.PI * radius ** 3).toFixed(2)}`,
-  );
+    );
+  }
+  
 }
 
+// ------------------------------------------ Exercise 5
 function runExerciseFive() {
   const num1: number = Number(readLine(`Enter a number: `));
   const num2: number = Number(
@@ -83,6 +92,7 @@ function runExerciseFive() {
   }
 }
 
+// ------------------------------------------ Exercise 6
 function runExerciseSix() {
   const positiveInt: number = Number(readLine(`Enter a positive integer: `));
   if (isNaN(positiveInt)) {
