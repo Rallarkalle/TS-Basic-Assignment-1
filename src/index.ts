@@ -10,19 +10,95 @@ function runExerciseOne() {
   const firstName = "Sebastian";
   const lastName = "Vallin";
   console.log(
-    `Hello ${firstName} ${lastName}! I'm glad to inform you that you are the test subject for my first assignment!`
+    `Hello ${firstName} ${lastName}! I'm glad to inform you that you are the test subject for my first assignment!`,
   );
 }
 
-function runExerciseTwo() {}
+function runExerciseTwo() {
+  const firstName: string = readLine(`Please enter your first name: `);
+  const lastName: string = readLine(`Please enter your last name: `);
+  console.log(`Hello ${firstName} ${lastName}! Have a nice day!`);
+}
+// -------------------------------- TEST FUNCTIONS FROM 3 - 6
+function runExerciseThree() {
+  // A
+  const num1: number = Number(readLine(`Enter a number: `));
+  const num2: number = Number(readLine(`Enter a second number: `));
 
-function runExerciseThree() {}
+  if (isNaN(num1) || isNaN(num2)) {
+    console.log(
+      `ERROR: One of the inputs were invalid. Please enter only number characters.`,
+    );
+  } else {
+    const sum: number = num1 + num2;
+    console.log(`${sum}`);
+  }
 
-function runExerciseFour() {}
+  // B
+  const evenNum: number = Number(readLine(`Enter an even number: `));
+  const oddNum: number = Number(readLine(`Enter an odd number: `));
+  if (isNaN(evenNum) || isNaN(oddNum)) {
+    console.log(
+      `ERROR: One of the inputs were not numbers. Please enter only number characters.`,
+    );
+  } else if (oddNum === 0) {
+    console.log(
+      `ERROR: Your divisor is ${oddNum} - cannot divide a number by zero`,
+    );
+  } else {
+    console.log(`${oddNum} divided by ${evenNum} = ${oddNum / evenNum}`);
+  }
+}
 
-function runExerciseFive() {}
+function runExerciseFour() {
+  const radius: number = Number(readLine(`Enter circle radius (number): `));
+  console.log(
+    `Circle area: ${(Math.PI * radius ** 2).toFixed(2)}\nSphere volume: ${((4 / 3) * Math.PI * radius ** 3).toFixed(2)}`,
+  );
+}
 
-function runExerciseSix() {}
+function runExerciseFive() {
+  const num1: number = Number(readLine(`Enter a number: `));
+  const num2: number = Number(
+    readLine(
+      `Enter the next consecutive number (descending OR ascending order): `,
+    ),
+  );
+
+  if (isNaN(num1) || isNaN(num2)) {
+    console.log(
+      `ERROR: One of the inputs were invalid. Please enter only number characters.`,
+    );
+  } else {
+    if (num1 - num2 === -1) {
+      console.log(`Result: Consecutive (ascending)`);
+      console.log(`${num1} --> ${num2}`);
+    } else if (num1 - num2 === 1) {
+      console.log(`Result: consecutive (descending)`);
+      console.log(`${num1} --> ${num2}`);
+    } else {
+      console.log(`Result: not consecutive`);
+      console.log(`${num1} -/-> ${num2}`);
+    }
+  }
+}
+
+function runExerciseSix() {
+  const positiveInt: number = Number(readLine(`Enter a positive integer: `));
+  if (isNaN(positiveInt)) {
+    console.log(
+      `ERROR: ${positiveInt} is not a valid number. Please enter only a number.`,
+    );
+  } else {
+    if (positiveInt < 1) {
+      console.log(`${positiveInt} is not a positive number`);
+    } else if (positiveInt % 2 === 0) {
+      console.log(`${positiveInt} is an even number.`);
+    } else {
+      console.log(`${positiveInt} is not an even number.`);
+    }
+  }
+}
 
 function runExerciseSeven() {}
 
@@ -41,7 +117,7 @@ console.clear();
 while (keepAlive) {
   try {
     const assignmentChoice = parseInt(
-      readLine("Enter assignment number (ctrl + C or -1 to exit): ")
+      readLine("Enter assignment number (ctrl + C or -1 to exit): "),
     );
     console.log();
     switch (assignmentChoice) {
