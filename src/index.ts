@@ -56,13 +56,12 @@ function runExerciseThree() {
 function runExerciseFour() {
   const radius: number = Number(readLine(`Enter circle radius (number): `));
   if (isNaN(radius)) {
-    console.log(`ERROR: ${radius} is not a valid number.`)
+    console.log(`ERROR: ${radius} is not a valid number.`);
   } else {
     console.log(
-    `Circle area: ${(Math.PI * radius ** 2).toFixed(2)}\nSphere volume: ${((4 / 3) * Math.PI * radius ** 3).toFixed(2)}`,
+      `Circle area: ${(Math.PI * radius ** 2).toFixed(2)}\nSphere volume: ${((4 / 3) * Math.PI * radius ** 3).toFixed(2)}`,
     );
   }
-  
 }
 
 // ------------------------------------------ Exercise 5
