@@ -295,7 +295,33 @@ function runExerciseTen() {
       case "h":
         const actualStr3 =
           "Arrays are very common in programming, they look something like: [1,2,3,4,5]";
-      // Expected string [1,4,5,6,7,8]
+
+
+        const stringArray = actualStr3
+          .slice(actualStr3.indexOf("1"), actualStr3.indexOf("]"))
+          .split(",");
+
+        const numArray: number[] = [];
+
+        for (let i = 0; i < stringArray.length + 1; i++) {
+          if (stringArray[i] === "1") {
+            numArray.push(Number(stringArray[i]));
+          } else if (i === 5) {
+            numArray.push(8);
+          } else if (Number(stringArray[i]) > 1) {
+            numArray.push(Number(stringArray[i]) + 2);
+          }
+        }
+
+        const joinedNumbers = `[${numArray.join(", ")}]`;
+
+        console.log();
+        console.log(`The string "${actualStr3}" is now turned into...`);
+        console.log(`${joinedNumbers}`);
+        console.log(`Which is a type of: ${typeof joinedNumbers}`);
+        console.log();
+        break;
+
       default:
         if (input === "/exit") {
           break;
@@ -311,7 +337,95 @@ function runExerciseTen() {
 }
 
 // ------------------------------------------ Exercise 11
-function runExerciseEleven() {}
+function runExerciseEleven() {
+  console.log("This exercise has been skipped! Sorry!");
+}
+
+// ------------------------------------------ Exercise 12
+function runExerciseTwelve() {
+  const userNum: number = Number(
+    readLine("Enter any (whole) number below 100: "),
+  );
+
+  console.log("---------------For loop start-----------------");
+  // Descending
+  for (let i = userNum; i > 0; i--) {
+    console.log(i);
+  }
+  // Ascending
+  for (let i = 1; i <= Number(userNum); i++) {
+    console.log(i);
+  }
+  console.log("-----------------For loop end-----------------");
+  console.log("----------------While loop Start--------------");
+
+  let whileCounterPos = 1;
+  let whileCounterNeg: number = userNum;
+
+  while (whileCounterPos <= userNum) {
+    while (whileCounterNeg > 0) {
+      console.log(whileCounterNeg);
+      whileCounterNeg--;
+    }
+    console.log(whileCounterPos);
+    whileCounterPos++;
+  }
+
+  console.log("-----------------While loop end-----------------");
+  console.log("---------------Do-while loop Start--------------");
+  let doCounterPos = 1;
+  let doCounterNeg = userNum;
+  // Descending
+  do {
+    console.log(doCounterNeg);
+    doCounterNeg--;
+  } while (doCounterNeg > 0);
+  // Ascending
+  do {
+    console.log(doCounterPos);
+    doCounterPos++;
+  } while (doCounterPos <= userNum);
+}
+
+function runExerciseThirteen() {
+  while (true) {
+    const secretNumber = Math.floor(Math.random() * 10) + 1;
+    console.log("Try to guess the secret number (between 1-10)!");
+    let userAns = Number(readLine("Guess: "));
+    let exitLoop: boolean = false;
+
+    if (isNaN(userAns)) {
+      console.log(`${userAns} is not a valid number. `);
+    } else if (userAns < 1 || userAns > 10) {
+      console.log(`You guessed outside of the range!`);
+    } else if (userAns !== secretNumber) {
+      console.log(`Your guess: ${userAns}\nSecret number: ${secretNumber}`);
+      console.log("Unfortunately, you guessed wrong. Better luck next time!");
+    } else if (userAns === secretNumber) {
+      console.log(`Your guess: ${userAns}\nSecret number: ${secretNumber}`);
+      console.log("You guessed the secret number!");
+    } else {
+      console.log(
+        "Something went seriously wrong behind the scenes - try again",
+      );
+    }
+
+    exitLoop =
+      readLine("Do you wish to exit this game/exercise? (yes | no): ") ===
+      "yes";
+    if (exitLoop === true) {
+      break;
+    }
+  }
+}
+
+function runExerciseFourteen() {}
+
+function runExerciseFifteen() {}
+
+function runExerciseSixteen() {}
+
+function runExerciseSeventeen() {}
 
 /* ^^^^^^^^^^^^  Add the rest of the exercise functions above this line ^^^^^^^^^^^^ */
 
@@ -356,6 +470,12 @@ while (keepAlive) {
         break;
       case 11:
         runExerciseEleven();
+        break;
+      case 12:
+        runExerciseTwelve();
+        break;
+      case 13:
+        runExerciseThirteen();
         break;
 
       /* ^^^^^^^^^^^^  Add the rest of the exercises above this line ^^^^^^^^^^^^ */
