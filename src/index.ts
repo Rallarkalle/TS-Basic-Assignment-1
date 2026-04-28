@@ -254,14 +254,48 @@ function runExerciseTen() {
         const pluralStr = singularStr.replace(/I/g, "We").replace(/am/g, "are");
         console.log(pluralStr);
         break;
+
       case "e":
+        const actualStr = "She is the popular singer.";
+        const stringToArray = actualStr.split(" ");
+        stringToArray.splice(3, 0, "most");
+        const result = stringToArray.join(" ");
+        console.log(
+          `Transforming the sentence "${actualStr}" into something containing more adverbs...`,
+        );
+        console.log();
+        console.log(`Final result: "${result}"`);
+        console.log();
+        break;
 
       case "f":
+        const actualStr1 = "A friend is the asset of your life";
+        const stringToArray1 = actualStr1.split(" ");
+        stringToArray1.splice(1, 0, "true");
+        stringToArray1.splice(5, 0, "greatest");
+
+        console.log();
+        console.log(`Initial sentence was: "${actualStr1}"`);
+        console.log(`Has now been turned into: "${stringToArray1.join(" ")}"`);
+        console.log();
+        break;
 
       case "g":
+        const actualStr2 = "My name is Sebastian Vallin";
+        // Alt:
+        // const onlyName = actualStr2.slice(11);
+        const onlyName = actualStr2.replace("My name is ", "");
+
+        console.log();
+        console.log(`Turning this sentence: "${actualStr2}"`);
+        console.log(`Into... "${onlyName}"`);
+        console.log();
+        break;
 
       case "h":
-
+        const actualStr3 =
+          "Arrays are very common in programming, they look something like: [1,2,3,4,5]";
+      // Expected string [1,4,5,6,7,8]
       default:
         if (input === "/exit") {
           break;
