@@ -296,6 +296,7 @@ function runExerciseTen() {
         const actualStr3 =
           "Arrays are very common in programming, they look something like: [1,2,3,4,5]";
 
+
         const stringArray = actualStr3
           .slice(actualStr3.indexOf("1"), actualStr3.indexOf("]"))
           .split(",");
