@@ -536,7 +536,23 @@ function runExerciseSeventeen() {
   }
 }
 
-function runExerciseEighteen() {}
+function runExerciseNineteen() {
+  console.log(
+    "To calculate the area of a triangle, enter the height and base and let the program do the rest.",
+  );
+  const height = Number(readLine("Height: "));
+  const base = Number(readLine("Base: "));
+  let result = 0;
+
+  function calcArea(height: number, base: number) {
+    return (result = 0.5 * base * height);
+  }
+
+  calcArea(height, base);
+  console.log(`The triangle's area is: 0.5 * ${height} * ${base} = ${result}`);
+}
+
+function runExerciseTwenty() {}
 
 /* ^^^^^^^^^^^^  Add the rest of the exercise functions above this line ^^^^^^^^^^^^ */
 
@@ -600,8 +616,11 @@ while (keepAlive) {
       case 17:
         runExerciseSeventeen();
         break;
-      case 18:
-        runExerciseEighteen();
+      case 19:
+        runExerciseNineteen();
+        break;
+      case 20:
+        runExerciseTwenty();
         break;
 
       /* ^^^^^^^^^^^^  Add the rest of the exercises above this line ^^^^^^^^^^^^ */
