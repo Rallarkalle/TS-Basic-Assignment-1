@@ -419,7 +419,6 @@ function runExerciseThirteen() {
 }
 
 function runExerciseFourteen() {
-
   console.log("Displaying multiplication table from 1-10:");
   console.log();
 
@@ -433,7 +432,21 @@ function runExerciseFourteen() {
   }
 }
 
-function runExerciseFifteen() {}
+function runExerciseFifteen() {
+  console.log("Printing upside down triangle:");
+  console.log();
+
+  let starArray: string[] = [];
+  let spaces: string = "";
+  for (let i = 0; i < 5; i++) {
+    spaces = " ".repeat(i);
+    for (let j = 5; j > i; j--) {
+      starArray.push("*");
+    }
+    console.log(spaces + starArray.join(" "));
+    starArray.length = 0;
+  }
+}
 
 function runExerciseSixteen() {}
 
@@ -491,6 +504,9 @@ while (keepAlive) {
         break;
       case 14:
         runExerciseFourteen();
+        break;
+      case 15:
+        runExerciseFifteen();
         break;
 
       /* ^^^^^^^^^^^^  Add the rest of the exercises above this line ^^^^^^^^^^^^ */
