@@ -448,7 +448,62 @@ function runExerciseFifteen() {
   }
 }
 
-function runExerciseSixteen() {}
+function runExerciseSixteen() {
+  while (true) {
+    console.log();
+    console.log("The way this works:   ");
+    console.log("-> you enter numbers...");
+    console.log("-> enter 0 to stop adding further numbers...");
+    console.log("-> program adds all entered numbers into one figure...");
+    console.log("-> and displays the sum.");
+    console.log();
+
+    let sum = 0;
+    let userInput = 1;
+    let numCounter = 0;
+
+    do {
+      const userInputString = readLine("Enter a number: ");
+
+      if (userInputString.trim() === "") {
+        console.log("Please enter a number.");
+      } else {
+        userInput = Number(userInputString);
+
+        if (isNaN(userInput)) {
+          console.log("That was not a number. Please enter a number.");
+        } else {
+          if (userInput !== 0) {
+            numCounter++;
+            sum += Number(userInput);
+          }
+        }
+      }
+    } while (userInput !== 0);
+
+    console.log(`The final sum of all numbers you entered: ${sum}`);
+    if (numCounter > 0) {
+      console.log(`The average of all numbers is: ${sum / numCounter}`);
+    } else {
+      console.log(`No average since no numbers were added.`);
+    }
+
+    console.log();
+
+    let runAgain = "";
+    do {
+      runAgain = readLine("Run again? (yes | no): ");
+
+      if (!["yes", "no"].includes(runAgain)) {
+        console.log("Input error: please enter a valid answer (yes | no)");
+      }
+    } while (!["yes", "no"].includes(runAgain));
+
+    if (runAgain === "no") {
+      break;
+    }
+  }
+}
 
 function runExerciseSeventeen() {}
 
@@ -507,6 +562,9 @@ while (keepAlive) {
         break;
       case 15:
         runExerciseFifteen();
+        break;
+      case 16:
+        runExerciseSixteen();
         break;
 
       /* ^^^^^^^^^^^^  Add the rest of the exercises above this line ^^^^^^^^^^^^ */
