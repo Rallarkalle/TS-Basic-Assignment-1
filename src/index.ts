@@ -296,7 +296,6 @@ function runExerciseTen() {
         const actualStr3 =
           "Arrays are very common in programming, they look something like: [1,2,3,4,5]";
 
-
         const stringArray = actualStr3
           .slice(actualStr3.indexOf("1"), actualStr3.indexOf("]"))
           .split(",");
@@ -419,7 +418,20 @@ function runExerciseThirteen() {
   }
 }
 
-function runExerciseFourteen() {}
+function runExerciseFourteen() {
+
+  console.log("Displaying multiplication table from 1-10:");
+  console.log();
+
+  let multipliedNums: number[] = [];
+  for (let i = 1; i <= 10; i++) {
+    for (let j = 1; j <= 10; j++) {
+      multipliedNums.push(i * j);
+    }
+    console.log(multipliedNums.join("\t"));
+    multipliedNums.length = 0;
+  }
+}
 
 function runExerciseFifteen() {}
 
@@ -476,6 +488,9 @@ while (keepAlive) {
         break;
       case 13:
         runExerciseThirteen();
+        break;
+      case 14:
+        runExerciseFourteen();
         break;
 
       /* ^^^^^^^^^^^^  Add the rest of the exercises above this line ^^^^^^^^^^^^ */
