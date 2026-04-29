@@ -505,7 +505,38 @@ function runExerciseSixteen() {
   }
 }
 
-function runExerciseSeventeen() {}
+function runExerciseSeventeen() {
+  console.log(
+    "The program will run a fibonacci sequence up to the number you enter.",
+  );
+  const userInput = Number(readLine("Enter a non-negative integer: "));
+
+  if (isNaN(userInput) || userInput < 0) {
+    console.log("Please enter a valid non-negative integer.");
+    return;
+  }
+
+  if (userInput === 0) {
+    console.log(0);
+    return;
+  }
+
+  let a = 0;
+  let b = 1;
+
+  console.log(a);
+  console.log(b);
+
+  for (let i = 2; i <= userInput; i++) {
+    const next = a + b; // 0 + 1 = 1
+    a = b; // a = 1
+    b = next; // b = 1
+
+    console.log(next);
+  }
+}
+
+function runExerciseEighteen() {}
 
 /* ^^^^^^^^^^^^  Add the rest of the exercise functions above this line ^^^^^^^^^^^^ */
 
@@ -565,6 +596,12 @@ while (keepAlive) {
         break;
       case 16:
         runExerciseSixteen();
+        break;
+      case 17:
+        runExerciseSeventeen();
+        break;
+      case 18:
+        runExerciseEighteen();
         break;
 
       /* ^^^^^^^^^^^^  Add the rest of the exercises above this line ^^^^^^^^^^^^ */
