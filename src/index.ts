@@ -552,8 +552,55 @@ function runExerciseNineteen() {
   console.log(`The triangle's area is: 0.5 * ${height} * ${base} = ${result}`);
 }
 
-function runExerciseTwenty() {}
+function runExerciseTwenty() {
+  function swapNums(num1: number, num2: number) {
+    let temp = num1;
+    num1 = num2;
+    num2 = temp;
 
+    console.log(`Num1 swapped: ${num1}`);
+    console.log(`Num2 swapped: ${num2}`);
+
+    return [num1, num2];
+  }
+
+  const swappedNums: number[] = swapNums(1, 2);
+  const swappedNum1 = swappedNums[0];
+  const swappedNum2 = swappedNums[1];
+
+  console.log(`Num1: ${swappedNum1}`);
+  console.log(`Num1: ${swappedNum2}`);
+}
+
+function runExerciseTwentyone() {
+  
+}
+
+function runExerciseTwentytwo() {}
+
+function runExerciseTwentythree() {}
+
+function runExerciseTwentyfour() {}
+
+function runExerciseTwentyfive() {}
+
+function runExerciseTwentysix() {}
+
+function runExerciseTwentyseven() {}
+
+function runExerciseTwentyeight() {}
+
+function runExerciseTwentynine() {}
+
+function runExerciseThirty() {}
+
+function runExerciseThirtyone() {}
+
+function runExerciseThirtytwo() {}
+
+function runExerciseThirtythree() {}
+
+function runExerciseThirtyfour() {}
 /* ^^^^^^^^^^^^  Add the rest of the exercise functions above this line ^^^^^^^^^^^^ */
 
 let keepAlive = true;
@@ -621,6 +668,48 @@ while (keepAlive) {
         break;
       case 20:
         runExerciseTwenty();
+        break;
+      case 21:
+        runExerciseTwentyone();
+        break;
+      case 22:
+        runExerciseTwentytwo();
+        break;
+      case 23:
+        runExerciseTwentythree();
+        break;
+      case 24:
+        runExerciseTwentyfour();
+        break;
+      case 25:
+        runExerciseTwentyfive();
+        break;
+      case 26:
+        runExerciseTwentysix();
+        break;
+      case 27:
+        runExerciseTwentyseven();
+        break;
+      case 28:
+        runExerciseTwentyeight();
+        break;
+      case 29:
+        runExerciseTwentynine();
+        break;
+      case 30:
+        runExerciseThirty();
+        break;
+      case 31:
+        runExerciseThirtyone();
+        break;
+      case 32:
+        runExerciseThirtytwo();
+        break;
+      case 33:
+        runExerciseThirtythree();
+        break;
+      case 34:
+        runExerciseThirtyfour();
         break;
 
       /* ^^^^^^^^^^^^  Add the rest of the exercises above this line ^^^^^^^^^^^^ */
