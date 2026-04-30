@@ -573,7 +573,30 @@ function runExerciseTwenty() {
 }
 
 function runExerciseTwentyone() {
+  const currentYear = new Date().getFullYear();
+
+  function calcAge (birthYear: number):number {
+    
+    return currentYear - birthYear;
+  }
   
+  let birthYear: number = NaN;
+
+  while (true) {
+    const input = Number(readLine("Enter your birthyear(4 digits): ").trim());
+
+    if (isNaN(input) || input > currentYear) {
+      console.log("Invalid year, try again.");
+    } else {
+      birthYear = input;
+      break;
+    }
+  }
+
+  const userAge = calcAge(birthYear);
+
+  console.log(`You are, or will be, ${userAge} years old this year.`);
+
 }
 
 function runExerciseTwentytwo() {}
