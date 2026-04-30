@@ -575,11 +575,10 @@ function runExerciseTwenty() {
 function runExerciseTwentyone() {
   const currentYear = new Date().getFullYear();
 
-  function calcAge (birthYear: number):number {
-    
+  function calcAge(birthYear: number): number {
     return currentYear - birthYear;
   }
-  
+
   let birthYear: number = NaN;
 
   while (true) {
@@ -596,20 +595,264 @@ function runExerciseTwentyone() {
   const userAge = calcAge(birthYear);
 
   console.log(`You are, or will be, ${userAge} years old this year.`);
-
 }
 
-function runExerciseTwentytwo() {}
+function runExerciseTwentytwo() {
+  const currentYear = new Date().getFullYear();
+  const calcAge = (birthYear: number): number => {
+    return currentYear - birthYear;
+  };
+  let userAge: number = NaN;
+  let ans: string;
+  let numDrinks: number;
 
-function runExerciseTwentythree() {}
+  while (true) {
+    const userName: string = readLine("Hello there! Please enter your name: ");
 
-function runExerciseTwentyfour() {}
+    while (true) {
+      const birthYear = Number(
+        readLine(
+          `Greetings ${userName}! Please enter your birth year (4 digits): `,
+        ).trim(),
+      );
 
-function runExerciseTwentyfive() {}
+      if (isNaN(birthYear) || birthYear > currentYear) {
+        console.log("Invalid year, try again.");
+      } else {
+        userAge = calcAge(birthYear);
+        break;
+      }
+    }
 
-function runExerciseTwentysix() {}
+    if (userAge >= 18) {
+      // Start question
+      ans = readLine("Would you like to order a beer? (yes | no): ")
+        .trim()
+        .toLowerCase();
+      if (!["yes", "no"].includes(ans)) {
+        console.log("Please answer the bartender with an intelligible answer.");
 
-function runExerciseTwentyseven() {}
+        // NO to beer branch -> ask if user wants soda
+      } else if (ans === "no") {
+        while (true) {
+          ans = readLine("Would you like to order a soda instead? (yes | no): ")
+            .trim()
+            .toLowerCase();
+
+          if (!["yes", "no"].includes(ans)) {
+            console.log(
+              "Please answer the bartender with an intelligible answer.",
+            );
+          } else if (ans === "no") {
+            console.log(
+              "Well, beer and soda is all this tavern has to offer so you are out of options buddy.",
+            );
+            break;
+          } else if (ans === "yes") {
+            console.log("How many sodas would you like?");
+            numDrinks = Number(readLine("Number of sodas: ").trim());
+            console.log(`You are served ${numDrinks} sodas by the bartender.`);
+            break;
+          }
+        }
+
+        // YES to beer branch
+      } else if (ans === "yes") {
+        while (true) {
+          console.log("How many beers would you like?");
+          numDrinks = Number(readLine("Number of beers: ").trim());
+          console.log(`You are served ${numDrinks} beers by the bartender.`);
+          ans = readLine("Order another round of beers? (yes | no): ")
+            .trim()
+            .toLowerCase();
+          if (!["yes", "no"].includes(ans)) {
+            console.log(
+              "Please answer the bartender with an intelligible answer.",
+            );
+          } else if (ans === "no") {
+            break;
+          }
+        }
+      }
+
+      // Below 18 -> ask if user wants soda
+    } else {
+      console.log(
+        `Sorry ${userName}, you're not of age for beer yet, but I can serve you soda if you like?`,
+      );
+      ans = readLine("Would you like a soda? (yes | no): ");
+
+      if (!["yes", "no"].includes(ans)) {
+        console.log("Please answer the bartender with an intelligible answer.");
+      } else if (ans === "no") {
+        console.log(
+          "Well, beer and soda is all this tavern has to offer so you are out of options buddy.",
+        );
+      } else if (ans === "yes") {
+        while (true) {
+          console.log("How many sodas would you like?");
+          numDrinks = Number(readLine("Number of sodas: ").trim());
+          console.log(`You are served ${numDrinks} sodas by the bartender.`);
+          ans = readLine("Order another round of sodas? (yes | no): ")
+            .trim()
+            .toLowerCase();
+          if (!["yes", "no"].includes(ans)) {
+            console.log(
+              "Please answer the bartender with an intelligible answer.",
+            );
+          } else if (ans === "no") {
+            break;
+          }
+        }
+      }
+    }
+
+    ans = readLine("Exit the tavern? (yes | no): ").trim().toLowerCase();
+    if (ans === "yes") {
+      console.log("You exit the tavern...");
+      break;
+    } else {
+      console.log();
+      console.log("You go up to the bartender for another round of drinks...");
+      console.log(
+        "... Though, he seems to suffer from short term memory loss...",
+      );
+      console.log();
+      continue;
+    }
+  }
+}
+
+function runExerciseTwentythree() {
+  const numbers: number[] = [2, 5, 10, 23, 3];
+
+  // ------ Guarded check for highest number (in case of empty array) using ternary expression, .
+  // -> if array contains 1 or more elements -> = "truthy" -> perform Math.max() and return highest number
+  // -> if array contains 0 elements -> = "falsy" -> returns undefined
+  const max = numbers.length ? Math.max(...numbers) : undefined;
+
+  // ------ Alt: Simple check for highest number in array since array numbers are hardcoded.
+  // const max = Math.max(...numbers);
+
+  console.log(`Here's an array of numbers:`);
+  console.log(numbers);
+  console.log();
+  console.log(`The highest number in the array is: ${max}`);
+}
+
+function runExerciseTwentyfour() {
+  console.log("Enter a series of numbers separated by commas.");
+  const userNums: string = readLine("Enter numbers: ").trim();
+
+  // Convert string of numbers into array of numbers using .split() and .map()
+  const userNumsArray = userNums.split(",").map((number) => Number(number));
+
+  // Ternary expressions to perform Math / reduce methods and return -> a value || undefined if array is empty
+  const arrayMax = userNumsArray.length
+    ? Math.max(...userNumsArray)
+    : undefined;
+  const arrayMin = userNumsArray.length
+    ? Math.min(...userNumsArray)
+    : undefined;
+  const arrayAvg = userNumsArray.length
+    ? userNumsArray.reduce((total, num) => total + num, 0) /
+      userNumsArray.length
+    : undefined;
+
+  console.log(`You entered: ${userNumsArray}`);
+  console.log(`The highest number entered was: ${arrayMax}`);
+  console.log(`The lowest number entered was: ${arrayMin}`);
+  console.log(`The average of all numbers entered was: ${arrayAvg}`);
+}
+
+function runExerciseTwentyfive() {
+  const randomNums: number[] = [];
+
+  // Range of random numbers generated: 1-100
+  for (let i = 0; i < 20; i++) {
+    randomNums.push(Math.floor(Math.random() * 100) + 1);
+  }
+
+  const evenArray = randomNums.filter((num) => num % 2 === 0);
+  const oddArray = randomNums.filter((num) => num % 2 !== 0);
+
+  console.log(`Array of randomly generated numbers: `);
+  console.log(randomNums.join(" | "));
+  console.log();
+  console.log(`These are the even numbers found in the array:`);
+  console.log(evenArray.join(" | "));
+  console.log();
+  console.log(`These are the odd numbers found in the array:`);
+  console.log(oddArray.join(" | "));
+  // console.log(randomNums);
+}
+
+function runExerciseTwentysix() {
+  const userNums: number[] = [];
+
+  console.log("Enter 10 numbers of your choice (negative or positive):");
+  for (let i = 1; i <= 10; i++) {
+    while (true) {
+      console.log(`Current input: ${i}/10`);
+      const stringNum = readLine("Enter number: ");
+      if (stringNum === "") {
+        console.log("Invalid input: empty value.");
+        continue;
+      }
+      const toNum = Number(stringNum);
+      if (Number.isNaN(toNum)) {
+        console.log(
+          "Invalid input. Only positive (e.g. 3, 10, 256) or negative numbers (e.g. -3, -10, -256)",
+        );
+        continue;
+      }
+      userNums.push(toNum);
+      break;
+    }
+  }
+
+  const negatives = userNums.filter((num) => num < 0);
+
+  negatives.length
+    ? console.log(`Negative numbers entered: ${negatives.join(" | ")}`)
+    : console.log("No negative numbers found among your entries");
+}
+
+function runExerciseTwentyseven() {
+  const userNums: number[] = [];
+
+  for (let i = 1; i <= 12; i++) {
+    while (true) {
+      console.log(`Current input: ${i}/12`);
+      const stringNum = readLine("Enter number: ");
+      if (stringNum === "") {
+        console.log("Invalid input: empty value.");
+        continue;
+      }
+      const toNum = Number(stringNum);
+      if (Number.isNaN(toNum)) {
+        console.log(
+          "Invalid input. Input can only be positive integer numbers.",
+        );
+        continue;
+      }
+      userNums.push(toNum);
+      break;
+    }
+  }
+
+  const evenArray = userNums.filter((num) => num % 2 === 0);
+  const oddArray = userNums.filter((num) => num % 2 !== 0);
+
+  console.log(`List of entered numbers: `);
+  console.log(userNums.join(" | "));
+  console.log();
+  console.log(`These are the even numbers found in the list:`);
+  console.log(evenArray.join(" | "));
+  console.log();
+  console.log(`These are the odd numbers found in the list:`);
+  console.log(oddArray.join(" | "));
+}
 
 function runExerciseTwentyeight() {}
 
@@ -617,9 +860,60 @@ function runExerciseTwentynine() {}
 
 function runExerciseThirty() {}
 
-function runExerciseThirtyone() {}
+function runExerciseThirtyone() {
+  const currentYear = new Date().getFullYear();
+  console.log(
+    "This program will check if  the year you enter is the current year.",
+  );
+  while (true) {
+    const userInputStr = readLine("Enter year: ");
+    if (userInputStr === "") {
+      console.log("Invalid input: empty value.");
+      continue;
+    }
+    const userInputNum = Number(userInputStr);
+    if (Number.isNaN(userInputNum)) {
+      console.log("Invalid input: Year must be a number.");
+      continue;
+    }
+    if (currentYear === userInputNum) {
+      console.log(`The year you entered is indeed the current year.`);
+      console.log(`Current year: ${currentYear} = Your year: ${userInputNum}`);
+      break;
+    } else {
+      console.log(
+        `The year you entered (${userInputNum}) was not the same as current year (${currentYear})`,
+      );
+      break;
+    }
+  }
+}
 
-function runExerciseThirtytwo() {}
+function runExerciseThirtytwo() {
+  console.log("Displaying various dates in various formats:");
+  // Short Date format example: const d = new Date("03/25/2015");
+  const today = new Date();
+  const todayShort = today.toLocaleDateString("sv-SE");
+  const todayLong = today.toLocaleDateString("sv-SE", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  const yesterday = new Date(today);
+  yesterday.setDate(today.getDate() - 1);
+  const yesterdayShort = yesterday.toLocaleDateString("sv-SE");
+
+  const tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1);
+  const tomorrowShort = tomorrow.toLocaleDateString("sv-SE");
+
+  console.log(`Today (short): ${todayShort}`);
+  console.log(`Today (long): ${todayLong}`);
+  console.log(`Yesterday (short): ${yesterdayShort}`);
+  console.log(`Tomorrow (short): ${tomorrowShort}`);
+}
 
 function runExerciseThirtythree() {}
 
