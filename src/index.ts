@@ -6,6 +6,7 @@ import prompt from "prompt-sync";
 // Use the following function to read input from the user:
 const readLine = prompt({ sigint: true });
 
+// ------------------------------------------ Exercise 1
 function runExerciseOne() {
   const firstName = "Sebastian";
   const lastName = "Vallin";
@@ -337,7 +338,53 @@ function runExerciseTen() {
 
 // ------------------------------------------ Exercise 11
 function runExerciseEleven() {
-  console.log("This exercise has been skipped! Sorry!");
+  let total = 0;
+  let op: string;
+  console.log("Welcome to the calculator!");
+  console.log("This calculator can perform:");
+  console.log(
+    "- addition (+)\n- subtraction (-)\n- multiplication (*)\n- division (/)",
+  );
+  console.log();
+  console.log(
+    "User input will be prompted in the following order: number | operator | number",
+  );
+
+  while (true) {
+    const num1 = Number(readLine("Enter number: "));
+    while (true) {
+      op = readLine("Enter operator (+, -, *, /): ");
+      if (op !== "+" && op !== "-" && op !== "*" && op !== "/") {
+        console.log("Invalid operator. Must be + | - | * | / ");
+      } else {
+        break;
+      }
+    }
+    const num2 = Number(readLine("Enter number: "));
+
+    if (Number.isNaN(num1) || Number.isNaN(num2)) {
+      console.log(`Invalid number input. Must be numeric values only.`);
+    } else if (op === "/" && num2 === 0) {
+      console.log("You cannot divide by zero.");
+    } else {
+      switch (op) {
+        case "+":
+          total = num1 + num2;
+          break;
+        case "-":
+          total = num1 - num2;
+          break;
+        case "*":
+          total = num1 * num2;
+          break;
+        case "/":
+          total = num1 / num2;
+          break;
+      }
+
+      console.log(`${num1} ${op} ${num2} = ${total}`);
+    }
+  }
 }
 
 // ------------------------------------------ Exercise 12
@@ -386,6 +433,7 @@ function runExerciseTwelve() {
   } while (doCounterPos <= userNum);
 }
 
+// ------------------------------------------ Exercise 13
 function runExerciseThirteen() {
   while (true) {
     const secretNumber = Math.floor(Math.random() * 10) + 1;
@@ -418,6 +466,7 @@ function runExerciseThirteen() {
   }
 }
 
+// ------------------------------------------ Exercise 14
 function runExerciseFourteen() {
   console.log("Displaying multiplication table from 1-10:");
   console.log();
@@ -432,6 +481,7 @@ function runExerciseFourteen() {
   }
 }
 
+// ------------------------------------------ Exercise 15
 function runExerciseFifteen() {
   console.log("Printing upside down triangle:");
   console.log();
@@ -448,6 +498,7 @@ function runExerciseFifteen() {
   }
 }
 
+// ------------------------------------------ Exercise 16
 function runExerciseSixteen() {
   while (true) {
     console.log();
@@ -505,6 +556,7 @@ function runExerciseSixteen() {
   }
 }
 
+// ------------------------------------------ Exercise 17
 function runExerciseSeventeen() {
   console.log(
     "The program will run a fibonacci sequence up to the number you enter.",
@@ -536,6 +588,7 @@ function runExerciseSeventeen() {
   }
 }
 
+// ------------------------------------------ Exercise 19
 function runExerciseNineteen() {
   console.log(
     "To calculate the area of a triangle, enter the height and base and let the program do the rest.",
@@ -552,6 +605,7 @@ function runExerciseNineteen() {
   console.log(`The triangle's area is: 0.5 * ${height} * ${base} = ${result}`);
 }
 
+// ------------------------------------------ Exercise 20
 function runExerciseTwenty() {
   function swapNums(num1: number, num2: number) {
     let temp = num1;
@@ -572,6 +626,7 @@ function runExerciseTwenty() {
   console.log(`Num1: ${swappedNum2}`);
 }
 
+// ------------------------------------------ Exercise 21
 function runExerciseTwentyone() {
   const currentYear = new Date().getFullYear();
 
@@ -597,6 +652,7 @@ function runExerciseTwentyone() {
   console.log(`You are, or will be, ${userAge} years old this year.`);
 }
 
+// ------------------------------------------ Exercise 22
 function runExerciseTwentytwo() {
   const currentYear = new Date().getFullYear();
   const calcAge = (birthYear: number): number => {
@@ -723,6 +779,7 @@ function runExerciseTwentytwo() {
   }
 }
 
+// ------------------------------------------ Exercise 23
 function runExerciseTwentythree() {
   const numbers: number[] = [2, 5, 10, 23, 3];
 
@@ -740,6 +797,7 @@ function runExerciseTwentythree() {
   console.log(`The highest number in the array is: ${max}`);
 }
 
+// ------------------------------------------ Exercise 24
 function runExerciseTwentyfour() {
   console.log("Enter a series of numbers separated by commas.");
   const userNums: string = readLine("Enter numbers: ").trim();
@@ -765,6 +823,7 @@ function runExerciseTwentyfour() {
   console.log(`The average of all numbers entered was: ${arrayAvg}`);
 }
 
+// ------------------------------------------ Exercise 25
 function runExerciseTwentyfive() {
   const randomNums: number[] = [];
 
@@ -787,6 +846,7 @@ function runExerciseTwentyfive() {
   // console.log(randomNums);
 }
 
+// ------------------------------------------ Exercise 26
 function runExerciseTwentysix() {
   const userNums: number[] = [];
 
@@ -818,6 +878,7 @@ function runExerciseTwentysix() {
     : console.log("No negative numbers found among your entries");
 }
 
+// ------------------------------------------ Exercise 27
 function runExerciseTwentyseven() {
   const userNums: number[] = [];
 
@@ -854,12 +915,22 @@ function runExerciseTwentyseven() {
   console.log(oddArray.join(" | "));
 }
 
-function runExerciseTwentyeight() {}
+// ------------------------------------------ Exercise 28
+function runExerciseTwentyeight() {
+  console.log("Sorry, this optional exercise was skipped!");
+}
 
-function runExerciseTwentynine() {}
+// ------------------------------------------ Exercise 29
+function runExerciseTwentynine() {
+  console.log("Sorry, this optional exercise was skipped!");
+}
 
-function runExerciseThirty() {}
+// ------------------------------------------ Exercise 30
+function runExerciseThirty() {
+  console.log("Sorry, this optional exercise was skipped!");
+}
 
+// ------------------------------------------ Exercise 31
 function runExerciseThirtyone() {
   const currentYear = new Date().getFullYear();
   console.log(
@@ -889,6 +960,7 @@ function runExerciseThirtyone() {
   }
 }
 
+// ------------------------------------------ Exercise 32
 function runExerciseThirtytwo() {
   console.log("Displaying various dates in various formats:");
   // Short Date format example: const d = new Date("03/25/2015");
@@ -915,9 +987,60 @@ function runExerciseThirtytwo() {
   console.log(`Tomorrow (short): ${tomorrowShort}`);
 }
 
-function runExerciseThirtythree() {}
+// ------------------------------------------ Exercise 33
+function runExerciseThirtythree() {
+  const currentYear = new Date().getFullYear();
+  console.log(
+    "Enter a date to determine if it's in a past, current, or future year.",
+  );
+  console.log("Date format: YYYY-MM-DD (e.g., 2024-01-15)");
 
-function runExerciseThirtyfour() {}
+  const userDateStr: string = readLine("Enter date: ").trim();
+
+  const userDate = new Date(userDateStr);
+
+  if (isNaN(userDate.getTime())) {
+    console.log("Invalid input. Please enter a valid date (YYYY-MM-DD).");
+    return;
+  }
+
+  const userYear = userDate.getFullYear();
+
+  if (userYear < currentYear) {
+    console.log();
+    console.log("Date entered is in a past year.");
+  } else if (userYear === currentYear) {
+    console.log("Date entered is in the current year");
+  } else {
+    console.log("Date entered is in a future year.");
+  }
+}
+
+// ------------------------------------------ Exercise 34
+function runExerciseThirtyfour() {
+  const currentYear = new Date().getFullYear();
+  const startYear = 1990;
+  let leapYearCount = startYear;
+
+  console.log(
+    `Searching leap years from 1990 to current year (${currentYear}):`,
+  );
+  while (true) {
+    if (
+      leapYearCount % 4 === 0 &&
+      (leapYearCount % 100 !== 0 || leapYearCount % 400 === 0)
+    ) {
+      console.log(leapYearCount);
+    }
+
+    if (currentYear === leapYearCount) {
+      break;
+    }
+
+    leapYearCount++;
+  }
+}
+
 /* ^^^^^^^^^^^^  Add the rest of the exercise functions above this line ^^^^^^^^^^^^ */
 
 let keepAlive = true;
